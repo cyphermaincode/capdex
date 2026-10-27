@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS growth_goals (
+  id SERIAL PRIMARY KEY,
+  employee_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  goal_text TEXT NOT NULL,
+  target_date DATE NOT NULL,
+  status VARCHAR(50) DEFAULT 'OPEN' CHECK (status IN ('OPEN', 'IN_PROGRESS', 'DONE')),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS manager_comments (
+  id SERIAL PRIMARY KEY,
+  evaluation_id INT NOT NULL REFERENCES evaluations(id) ON DELETE CASCADE,
+  manager_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  comment_text TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
